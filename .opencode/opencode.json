@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "read": {
+      "/Users/davide/repos/get-tasks-done-demo-app/.opencode/get-tasks-done/*": "allow"
+    },
+    "external_directory": {
+      "/Users/davide/repos/get-tasks-done-demo-app/.opencode/get-tasks-done/*": "allow"
+    }
+  }
+}
