@@ -17,7 +17,7 @@ A developer can start the Express API, apply the Prisma migration, call GET /hea
 | Validation | Zod route middleware with canonical error envelope | Enforces D-08 through D-10 and gives later routes a shared validation contract. |
 | Error handling | AppError hierarchy plus global Express error handler | Enforces consistent `{ error: { code, message, details? } }` responses and prevents production stack disclosure. |
 | Security middleware | helmet(), allowlist CORS, and body-safe morgan logging | Covers the Phase 1 ASVS L1 security controls before business endpoints are added. |
-| Deployment target | Local full-stack run command: `npm run db:deploy && npm run db:generate && npm run dev` | The project is an API service with local PostgreSQL as the first executable environment. |
+| Deployment target | Local full-stack run command: `rtk npm run db:deploy && rtk npm run db:generate && rtk npm run dev` | The project is an API service with local PostgreSQL as the first executable environment. |
 | Directory layout | Layered Express layout under src/routes, src/controllers, src/services, src/models, src/middleware, src/config, src/utils, and src/schemas | Implements D-01 and D-02 while keeping resource-specific files clear for future phases. |
 
 ## Stack Touched in Phase 1

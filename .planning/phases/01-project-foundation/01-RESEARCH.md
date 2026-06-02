@@ -111,19 +111,19 @@ Phase 1 establishes the complete foundation for a production-grade Express v5 RE
 ### Installation Commands
 ```bash
 # Core runtime
-npm install express@^5.0.0 @prisma/client zod helmet cors morgan dotenv
+rtk npm install express@^5.0.0 @prisma/client zod helmet cors morgan dotenv
 
 # Dev dependencies
-npm install -D prisma typescript tsx vitest supertest @types/express @types/node @types/cors @types/morgan
+rtk npm install -D prisma typescript tsx vitest supertest @types/express @types/node @types/cors @types/morgan
 
 # Initialize TypeScript
-npx tsc --init
+rtk npx tsc --init
 
 # Initialize Prisma
-npx prisma init
+rtk npx prisma init
 ```
 
-**Version verification:** All versions verified via `npm view <pkg> version` on 2026-06-02.
+**Version verification:** All versions verified via `rtk npm view <pkg> version` on 2026-06-02.
 
 ## Package Legitimacy Audit
 
@@ -703,27 +703,25 @@ export const taskUpdateSchema = z.object({
 | A3 | Helmet v8.x works with Express v5 without special configuration | Security | Helmet has always been Express-compatible; minor config needed for CSP |
 | A4 | Default page size 20-50 range — no explicit decision, use 20 as default | Pagination | May need adjustment if user has different preference during Phase 3 |
 
-## Open Questions
+## Open Questions (Resolved)
 
-1. **CORS configuration specifics**
-   - What we know: `cors()` needs configuration for allowed origins
-   - What's unclear: Should origins be an env var allowlist, or hardcoded for MVP?
-   - Recommendation: Use `CORS_ALLOWED_ORIGINS` env var as comma-separated list for Phase 1
+**Status:** Resolved 2026-06-02 during plan revision. The selected answers below use existing context and research defaults only.
 
-2. **Morgan logging format**
-   - What we know: `morgan('combined')` is standard for production
-   - What's unclear: Should we also log request body? (Security/privacy concern)
-   - Recommendation: Log method, path, status, response-time, and user-agent only for Phase 1
+1. **CORS configuration specifics — RESOLVED**
+   - Selected answer: Use `CORS_ALLOWED_ORIGINS` as a comma-separated environment allowlist for Phase 1.
+   - Source: D-17 requires CORS configured appropriately; D-15 requires startup env validation; Plan 04 implements env-driven allowlist behavior.
 
-3. **Prisma v6 vs v7 choice**
-   - What we know: v7.8.0 is latest, v6.19.2 is previous stable, STACK.md says v6.x
-   - What's unclear: Are there breaking changes between v6 and v7 that affect this project's timeline?
-   - Recommendation: Use v6.x as specified in research for stability; upgrade to v7 in a later phase
+2. **Morgan logging format — RESOLVED**
+   - Selected answer: Log method, path, status, response-time, and user-agent only; do not log request bodies.
+   - Source: Security research flags request bodies as privacy-sensitive; Plan 04 implements body-safe morgan logging.
 
-4. **Database URL validation**
-   - What we know: DATABASE_URL is required
-   - What's unclear: Should we also validate the format (postgres://...) or just presence?
-   - Recommendation: Only validate presence for Phase 1; add format validation in Phase 2 when connection testing is available
+3. **Prisma v6 vs v7 choice — RESOLVED**
+   - Selected answer: Use Prisma v6.x for Phase 1.
+   - Source: Standard Stack recommends v6.x for stability, and Plan 01 installs `@prisma/client@^6.0.0` and `prisma@^6.0.0`.
+
+4. **Database URL validation — RESOLVED**
+   - Selected answer: Validate `DATABASE_URL` presence at startup and rely on Prisma connection/migration tests for reachability.
+   - Source: D-15 requires env validation; 01-VALIDATION.md includes separate Prisma connection and migration tests.
 
 ## Environment Availability
 
@@ -732,14 +730,14 @@ export const taskUpdateSchema = z.object({
 | Node.js | Runtime | ✓ | 24.11.0 | — |
 | npm | Package manager | ✓ | 11.7.0 | — |
 | PostgreSQL | Database | ? | — | Prompt user to install/configure |
-| TypeScript | Language | Via `npx tsx` | latest | — |
-| Vitest | Test framework | Via `npx vitest` | 4.1.8 | — |
+| TypeScript | Language | Via `rtk npx tsx` | latest | — |
+| Vitest | Test framework | Via `rtk npx vitest` | 4.1.8 | — |
 
 **Missing dependencies with no fallback:**
 - **PostgreSQL**: Required for Prisma migrations and runtime. User must install and provide `DATABASE_URL`. This is the single blocker for full execution.
 
 **Missing dependencies with fallback:**
-- **PostgreSQL client (psql)**: Not required for app runtime — only for manual DB inspection. If missing, use Prisma Studio (`npx prisma studio`) instead.
+- **PostgreSQL client (psql)**: Not required for app runtime — only for manual DB inspection. If missing, use Prisma Studio (`rtk npx prisma studio`) instead.
 
 **PostgreSQL detection:**
 ```bash
@@ -759,28 +757,28 @@ pg_isready 2>/dev/null || echo "No PostgreSQL server detected"
 |----------|-------|
 | Framework | Vitest v4.1.8 + supertest v7.2.2 |
 | Config file | `vitest.config.ts` (TypeScript config) |
-| Quick run command | `npx vitest run` |
-| Full suite command | `npx vitest run --reporter=verbose` |
+| Quick run command | `rtk npx vitest run` |
+| Full suite command | `rtk npx vitest run --reporter=verbose` |
 | Test files | `tests/unit/*.test.ts`, `tests/integration/*.test.ts` |
 
 ### Phase Requirements → Test Map
 
 | Req ID | Behavior | Test Type | Automated Command | File Exists? |
 |--------|----------|-----------|-------------------|-------------|
-| SETUP-01a | Express server starts on configured port | Smoke | `npx vitest run tests/smoke/server.test.ts` | ❌ Wave 0 |
-| SETUP-01b | Graceful shutdown on SIGTERM | Smoke | `npx vitest run tests/smoke/shutdown.test.ts` | ❌ Wave 0 |
-| SETUP-01c | PostgreSQL connects via Prisma client | Integration | `npx vitest run tests/integration/db-connect.test.ts` | ❌ Wave 0 |
-| SETUP-01d | Migrations apply successfully | Integration | `npx vitest run tests/integration/migrations.test.ts` | ❌ Wave 0 |
-| SETUP-01e | Security headers set (helmet) | Unit | `npx vitest run tests/unit/helmet-headers.test.ts` | ❌ Wave 0 |
-| SETUP-01f | CORS configured | Unit | `npx vitest run tests/unit/cors.test.ts` | ❌ Wave 0 |
-| SETUP-01g | Zod validation returns consistent error format | Unit | `npx vitest run tests/unit/validation.test.ts` | ❌ Wave 0 |
-| SETUP-01h | JWT_SECRET validation at startup (>=64 chars) | Unit | `npx vitest run tests/unit/config-validation.test.ts` | ❌ Wave 0 |
-| SETUP-01i | Custom error class hierarchy works | Unit | `npx vitest run tests/unit/errors.test.ts` | ❌ Wave 0 |
-| SETUP-01j | Global error handler returns correct JSON shape | Unit | `npx vitest run tests/unit/error-handler.test.ts` | ❌ Wave 0 |
+| SETUP-01a | Express server starts on configured port | Smoke | `rtk npx vitest run tests/smoke/server.test.ts` | ❌ Wave 0 |
+| SETUP-01b | Graceful shutdown on SIGTERM | Smoke | `rtk npx vitest run tests/smoke/shutdown.test.ts` | ❌ Wave 0 |
+| SETUP-01c | PostgreSQL connects via Prisma client | Integration | `rtk npx vitest run tests/integration/db-connect.test.ts` | ❌ Wave 0 |
+| SETUP-01d | Migrations apply successfully | Integration | `rtk npx vitest run tests/integration/migrations.test.ts` | ❌ Wave 0 |
+| SETUP-01e | Security headers set (helmet) | Unit | `rtk npx vitest run tests/unit/helmet-headers.test.ts` | ❌ Wave 0 |
+| SETUP-01f | CORS configured | Unit | `rtk npx vitest run tests/unit/cors.test.ts` | ❌ Wave 0 |
+| SETUP-01g | Zod validation returns consistent error format | Unit | `rtk npx vitest run tests/unit/validation.test.ts` | ❌ Wave 0 |
+| SETUP-01h | JWT_SECRET validation at startup (>=64 chars) | Unit | `rtk npx vitest run tests/unit/config-validation.test.ts` | ❌ Wave 0 |
+| SETUP-01i | Custom error class hierarchy works | Unit | `rtk npx vitest run tests/unit/errors.test.ts` | ❌ Wave 0 |
+| SETUP-01j | Global error handler returns correct JSON shape | Unit | `rtk npx vitest run tests/unit/error-handler.test.ts` | ❌ Wave 0 |
 
 ### Sampling Rate
-- **Per task commit:** `npx vitest run` (all unit tests, <30 seconds expected)
-- **Per wave merge:** `npx vitest run --reporter=verbose` (full suite)
+- **Per task commit:** `rtk npx vitest run` (all unit tests, <30 seconds expected)
+- **Per wave merge:** `rtk npx vitest run --reporter=verbose` (full suite)
 - **Phase gate:** Full suite green before `/gtd-verify-work`
 
 ### Wave 0 Gaps
