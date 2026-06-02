@@ -26,7 +26,11 @@ A RESTful task management API built with Node.js and PostgreSQL. The journey spa
   3. Security headers (helmet) and CORS are configured
   4. Zod validates incoming requests with consistent error responses
   5. Environment variables are validated at startup (including JWT_SECRET ≥ 64 chars)
-**Plans**: TBD
+**Plans**: 4 plans
+  - `01-01-PLAN.md` — Package legitimacy gate, TypeScript/Vitest scaffold, and initial smoke/integration contracts
+  - `01-02-PLAN.md` — Prisma schema, blocking migration application, and health HTTP DB read/write slice
+  - `01-03-PLAN.md` — Startup config validation, Helmet, CORS allowlist, and safe request logging
+  - `01-04-PLAN.md` — Canonical error hierarchy, global error handler, Zod validation, and full verification
 
 ### Phase 2: Authentication
 **Goal**: Users can register, login, and access protected endpoints via JWT
