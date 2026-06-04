@@ -9,7 +9,7 @@ It comes with pre-seeded planning for a small task management API, so you do not
 - A demo repo with planning already in place
 - Exporting planned work to GitHub Issues
 - Running `get-tasks-done` against a disposable repo
-- Orchestrating the first 2 tasks with your preferred agent
+- Launching the orchestration for the first 2 tasks with your preferred agent
 
 ## Quick start
 
