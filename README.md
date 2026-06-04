@@ -1,4 +1,4 @@
-# get-tasks-done demo app
+# Test Get Tasks Done in under 5 minutes
 
 This repo is a disposable demo project for trying out [`ai-is-gonna/get-tasks-done`](https://github.com/ai-is-gonna/get-tasks-done).
 
