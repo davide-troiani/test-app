@@ -1,4 +1,4 @@
-# Test Get Tasks Done in under 5 minutes
+# ⚡ Get Tasks Done in under 5 minutes ⚡
 
 This repo is a disposable demo project for trying out [`ai-is-gonna/get-tasks-done`](https://github.com/ai-is-gonna/get-tasks-done).
 
@@ -54,10 +54,11 @@ If you install it into this repo and new files are added, commit those files bef
 $gtd-orchestrate-tasks first 2 tasks
 ```
 
-The agent will guide you from there.
+You will be involved in one human-in-the-loop issue and for a code review.
 
 ## Notes
 
+- The tasks are built for demo purposes and intentionally simple to focus on process rather than complexity.
 - This repo is meant to be disposable. Use a fresh test repo, not a production project.
 - The planning is already seeded under `.planning/`.
 - You will likely need to be authenticated with GitHub locally before exporting issues.
