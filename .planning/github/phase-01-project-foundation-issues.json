@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "repo": "davide-troiani/test-app",
+  "phase": "01-project-foundation",
+  "phase_number": "01",
+  "directory": ".planning/phases/01-project-foundation",
+  "status": "complete",
+  "exported_at": "2026-06-06T12:57:08.042Z",
+  "updated_at": "2026-06-06T12:57:08.043Z",
+  "plans": {
+    "01-01": {
+      "issue": 1,
+      "github_id": 4603449136,
+      "source_hash": "e7e9a930da8a8ea8b9bf8b7c85b5a635dd24f0e92a76f8c68c3725a3834ad3ce",
+      "status": "complete",
+      "relationships": {
+        "sub_issues_attached": true,
+        "dependencies_attached": true
+      },
+      "tasks": {
+        "01-01-T01": {
+          "issue": 6,
+          "github_id": 4603449347,
+          "source_hash": "c39ca7ada9dcc18319df7712a14d4eabfaf44090b2456033d80333745bae6952",
+          "type": "checkpoint:human-verify",
+          "done": "User explicitly approves installing the listed npm packages or names the packages to remove.",
+          "checkpoint_details": {
+            "type": "checkpoint:human-verify",
+            "action": "Before any install, verify the npm packages flagged [ASSUMED] in research: express, @prisma/client, zod, helmet, cors, morgan, dotenv, prisma, typescript, tsx, vitest, supertest, @types/express, @types/node, @types/cors, and @types/morgan. Confirm each package name matches the intended registry package and has an established source or npm listing per the Package Legitimacy Audit.",
+            "decision": "",
+            "context": "",
+            "options": "",
+            "what_built": "",
+            "how_to_verify": "",
+            "instructions": "",
+            "verification": "",
+            "resume_signal": ""
+          },
+          "exportStatus": "complete"
+        },
+        "01-01-T02": {
+          "issue": 7,
+          "github_id": 4603449408,
+          "source_hash": "c702954b86b80723a4cfbd6446b9821eb986c5fc6e54a5f22b8dab288dda9ee8",
+          "type": "auto",
+          "done": "The project has install-verified dependencies, TypeScript configuration, Vitest configuration, npm scripts, and environment examples.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        }
+      }
+    },
+    "01-02": {
+      "issue": 2,
+      "github_id": 4603449181,
+      "source_hash": "10c17099e9377f0164b76cd1147cde34657a6dd695c53b1be98cdc1323be67b0",
+      "status": "complete",
+      "relationships": {
+        "sub_issues_attached": true,
+        "dependencies_attached": true
+      },
+      "tasks": {
+        "01-02-T01": {
+          "issue": 8,
+          "github_id": 4603449611,
+          "source_hash": "fdab4266e9937114bb03b0f410e2ed986723c86cbced37bd60bd47be7c1c1cb9",
+          "type": "auto",
+          "done": "Server startup, graceful shutdown, HTTP DB write, and Prisma connection contracts exist before implementation.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        },
+        "01-02-T02": {
+          "issue": 9,
+          "github_id": 4603449790,
+          "source_hash": "42aa4bc8503d9fbd7969eb32455dd44787c857d09459fbee090ccd64f68fd23c",
+          "type": "auto",
+          "done": "Migration, startup config, Helmet, and CORS contracts exist before implementation.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        },
+        "01-02-T03": {
+          "issue": 10,
+          "github_id": 4603449855,
+          "source_hash": "6e5c6cf8d82a20793f1602af459072c5b0614388d45090c6eac8e1c34c02400b",
+          "type": "auto",
+          "done": "Canonical error and Zod validation contracts exist before implementation.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        }
+      }
+    },
+    "01-03": {
+      "issue": 3,
+      "github_id": 4603449223,
+      "source_hash": "c9584fd5179aee2ef0ccbadad65958f3e776f59d94e33e80a89b0ce0ba723273",
+      "status": "complete",
+      "relationships": {
+        "sub_issues_attached": true,
+        "dependencies_attached": true
+      },
+      "tasks": {
+        "01-03-T01": {
+          "issue": 11,
+          "github_id": 4603450003,
+          "source_hash": "516cb3a392a318468e1f0a0c8ffeb193cc18f75ecc71c2e3aac1d4eefbb4a42b",
+          "type": "auto",
+          "done": "Prisma schema and shared Prisma client exist with the required tables, relations, indexes, and soft-delete fields.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        },
+        "01-03-T02": {
+          "issue": 12,
+          "github_id": 4603450051,
+          "source_hash": "92cd59b55ddc3c1b4318adcb519eb5c99b74fbc8a40b99f748a1595f49260c6e",
+          "type": "auto",
+          "done": "The initial Prisma migration has been generated, applied, and Prisma Client has been generated before verification continues.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        },
+        "01-03-T03": {
+          "issue": 13,
+          "github_id": 4603450077,
+          "source_hash": "ab9b57faa119cc2f4aa5fac07f9c1c76f503739d8987d49bf0ee1c7fb0f6e8fa",
+          "type": "auto",
+          "done": "The walking skeleton has a startable Express server, a migrated Prisma schema, a real DB read, and a real HTTP-triggered DB write.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        }
+      }
+    },
+    "01-04": {
+      "issue": 4,
+      "github_id": 4603449268,
+      "source_hash": "61b26ee04f7c86cb5c2a5cc5c2b8d1aa7c726679817530c50f2fd838fe626986",
+      "status": "complete",
+      "relationships": {
+        "sub_issues_attached": true,
+        "dependencies_attached": true
+      },
+      "tasks": {
+        "01-04-T01": {
+          "issue": 14,
+          "github_id": 4603450106,
+          "source_hash": "2acef6a91603fc351c852620ce485b5101b40e1d0be269950d6180d5b16abe39",
+          "type": "auto",
+          "done": "Startup configuration validation enforces required env vars, valid PORT, and JWT_SECRET length >= 64.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        },
+        "01-04-T02": {
+          "issue": 15,
+          "github_id": 4603450168,
+          "source_hash": "959f226fa4270ad35ad3fd60c2ae235b0101db414aa132ddf617ee56bee444ea",
+          "type": "auto",
+          "done": "Express responses include security headers, production CORS is allowlist-driven, and request logging excludes bodies.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        }
+      }
+    },
+    "01-05": {
+      "issue": 5,
+      "github_id": 4603449307,
+      "source_hash": "907b8bb4526034b1f8562fbc237a04cfb24bb084b02bbdf2528b8b2ba670960b",
+      "status": "complete",
+      "relationships": {
+        "sub_issues_attached": true,
+        "dependencies_attached": true
+      },
+      "tasks": {
+        "01-05-T01": {
+          "issue": 16,
+          "github_id": 4603450305,
+          "source_hash": "37a6bac14ebb86a50c9539c08d4d2faaa49a976fa23988a98fb2d02708348175",
+          "type": "auto",
+          "done": "Custom errors and the global error handler return canonical, non-leaky JSON error responses.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        },
+        "01-05-T02": {
+          "issue": 17,
+          "github_id": 4603450385,
+          "source_hash": "b44321b726eda26bf51c967f04dd6ecc61eca185b69d91ff0d02ad65f6a0a1d0",
+          "type": "auto",
+          "done": "Zod validation middleware returns consistent 400 errors and protects POST /health/probe input.",
+          "checkpoint_details": null,
+          "exportStatus": "complete"
+        }
+      }
+    }
+  },
+  "operation_state": {
+    "completed": [
+      "ensure_label:gtd:blocked",
+      "ensure_label:gtd:blocked-human",
+      "ensure_label:gtd:checkpoint",
+      "ensure_label:gtd:checkpoint-resolved",
+      "ensure_label:gtd:complete",
+      "ensure_label:gtd:export-partial",
+      "ensure_label:gtd:human-in-the-loop",
+      "ensure_label:gtd:in-progress",
+      "ensure_label:gtd:merged",
+      "ensure_label:gtd:needs-rework",
+      "ensure_label:gtd:plan",
+      "ensure_label:gtd:pr-open",
+      "ensure_label:gtd:ready",
+      "ensure_label:gtd:ready-for-reconcile",
+      "ensure_label:gtd:reconcile-failed",
+      "ensure_label:gtd:reconcile-pr-open",
+      "ensure_label:gtd:rejected",
+      "ensure_label:gtd:source-drift",
+      "ensure_label:gtd:task",
+      "ensure_label:gtd:validation-failed",
+      "ensure_label:phase:01-project-foundation",
+      "ensure_label:type:checkpoint",
+      "ensure_label:type:plan",
+      "ensure_label:type:task",
+      "ensure_parent_issue:01-01:created",
+      "ensure_parent_issue:01-02:created",
+      "ensure_parent_issue:01-03:created",
+      "ensure_parent_issue:01-04:created",
+      "ensure_parent_issue:01-05:created",
+      "ensure_child_issue:01-01-T01:created",
+      "ensure_child_issue:01-01-T02:created",
+      "ensure_child_issue:01-02-T01:created",
+      "ensure_child_issue:01-02-T02:created",
+      "ensure_child_issue:01-02-T03:created",
+      "ensure_child_issue:01-03-T01:created",
+      "ensure_child_issue:01-03-T02:created",
+      "ensure_child_issue:01-03-T03:created",
+      "ensure_child_issue:01-04-T01:created",
+      "ensure_child_issue:01-04-T02:created",
+      "ensure_child_issue:01-05-T01:created",
+      "ensure_child_issue:01-05-T02:created",
+      "attach_sub_issue:01-01:01-01-T01",
+      "attach_sub_issue:01-01:01-01-T02",
+      "attach_sub_issue:01-02:01-02-T01",
+      "attach_sub_issue:01-02:01-02-T02",
+      "attach_sub_issue:01-02:01-02-T03",
+      "attach_sub_issue:01-03:01-03-T01",
+      "attach_sub_issue:01-03:01-03-T02",
+      "attach_sub_issue:01-03:01-03-T03",
+      "attach_sub_issue:01-04:01-04-T01",
+      "attach_sub_issue:01-04:01-04-T02",
+      "attach_sub_issue:01-05:01-05-T01",
+      "attach_sub_issue:01-05:01-05-T02",
+      "ensure_blocked_by:task:01-01-T02:#6",
+      "ensure_blocked_by:plan:01-02:01-01",
+      "ensure_blocked_by:task:01-02-T01:#1",
+      "ensure_blocked_by:task:01-02-T02:#8",
+      "ensure_blocked_by:task:01-02-T03:#9",
+      "ensure_blocked_by:plan:01-03:01-02",
+      "ensure_blocked_by:task:01-03-T01:#2",
+      "ensure_blocked_by:task:01-03-T02:#11",
+      "ensure_blocked_by:task:01-03-T03:#12",
+      "ensure_blocked_by:plan:01-04:01-03",
+      "ensure_blocked_by:task:01-04-T01:#3",
+      "ensure_blocked_by:task:01-04-T02:#14",
+      "ensure_blocked_by:plan:01-05:01-04",
+      "ensure_blocked_by:task:01-05-T01:#4",
+      "ensure_blocked_by:task:01-05-T02:#16",
+      "update_parent_checklist:01-01",
+      "update_parent_checklist:01-02",
+      "update_parent_checklist:01-03",
+      "update_parent_checklist:01-04",
+      "update_parent_checklist:01-05"
+    ],
+    "failed": null
+  }
+}
