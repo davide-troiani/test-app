@@ -2,7 +2,7 @@
   "version": 1,
   "id": "20260606t130317z",
   "repo": "davide-troiani/test-app",
-  "status": "agent_lanes_required",
+  "status": "integration_pending",
   "created_at": "2026-06-06T13:03:18.876Z",
   "default_branch": "main",
   "bulk_branch": "gtd/orchestrate-20260606t130317z",
@@ -72,15 +72,24 @@
       "issue": 7,
       "kind": "implementation",
       "source_hash": "c702954b86b80723a4cfbd6446b9821eb986c5fc6e54a5f22b8dab288dda9ee8",
-      "status": "claimed_ready",
-      "branch": "gtd/task-01-01-T02-7-bulk-20260606t130317z",
+      "status": "complete",
+      "branch": "gtd-task-executor-01-01-T02-7",
       "pr": null,
-      "decision": null,
-      "validation": null,
+      "decision": "accepted",
+      "validation": {
+        "verified_at": "2026-06-06T15:19:00Z",
+        "method": "tsc --noEmit --pretty false",
+        "result": "pass"
+      },
       "internal_blockers": [],
       "claim": {
         "claimed_at": "2026-06-06T13:03:20.125Z",
         "comment_ref": "https://api.github.com/repos/davide-troiani/test-app/issues/comments/4638694435"
+      },
+      "commit": {
+        "hash": "235b6c3",
+        "message": "feat(01-01-T02): complete package scaffold — TypeScript/Vitest config and environment example",
+        "files": ["package.json", "package-lock.json", "tsconfig.json", "vitest.config.ts", ".env.example", "tests/setup.ts", "tests/teardown.ts"]
       }
     }
   },
@@ -98,5 +107,16 @@
       ]
     }
   ],
-  "events": []
+  "events": [
+    {
+      "type": "task_complete",
+      "task_id": "01-01-T02",
+      "timestamp": "2026-06-06T15:19:00Z",
+      "details": {
+        "commit": "235b6c3",
+        "branch": "gtd-task-executor-01-01-T02-7",
+        "verification": "tsc --noEmit passed"
+      }
+    }
+  ]
 }
