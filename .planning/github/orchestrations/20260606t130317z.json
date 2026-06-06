@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "id": "20260606t130317z",
+  "repo": "davide-troiani/test-app",
+  "status": "agent_lanes_required",
+  "created_at": "2026-06-06T13:03:18.876Z",
+  "default_branch": "main",
+  "bulk_branch": "gtd/orchestrate-20260606t130317z",
+  "bulk_pr": null,
+  "selector": {
+    "mode": "issues",
+    "raw": "#6 #7",
+    "issue_numbers": [
+      6,
+      7
+    ]
+  },
+  "settings": {
+    "max_concurrency": 3,
+    "allow_partial": false,
+    "executor_backend": "agent",
+    "task_executor_model": "gpt-5.4-mini",
+    "task_executor_reasoning_effort": "medium",
+    "executor_mode": "agent_managed"
+  },
+  "reviewability": {
+    "ok": true,
+    "requires_confirmation": false,
+    "risk": "low",
+    "thresholds": {
+      "tasks": 5,
+      "files": 20,
+      "changed_loc": 800,
+      "subsystems": 2,
+      "manual_checks": 12
+    },
+    "triggered": [],
+    "estimate": {
+      "tasks": 2,
+      "files": 1,
+      "current_scope_loc": 0,
+      "expected_changed_loc": 80,
+      "subsystems": 1,
+      "manual_checks": 10,
+      "generated_or_migration_risk": false
+    },
+    "recommended_subset": [
+      {
+        "task_id": "01-01-T01",
+        "issue": 6
+      },
+      {
+        "task_id": "01-01-T02",
+        "issue": 7
+      }
+    ],
+    "decision_options": []
+  },
+  "tasks": {
+    "01-01-T01": {
+      "issue": 6,
+      "kind": "checkpoint",
+      "source_hash": "c39ca7ada9dcc18319df7712a14d4eabfaf44090b2456033d80333745bae6952",
+      "status": "checkpoint_resolved",
+      "branch": "gtd/task-01-01-T01-6-bulk-20260606t130317z",
+      "pr": null,
+      "decision": null,
+      "validation": null,
+      "internal_blockers": []
+    },
+    "01-01-T02": {
+      "issue": 7,
+      "kind": "implementation",
+      "source_hash": "c702954b86b80723a4cfbd6446b9821eb986c5fc6e54a5f22b8dab288dda9ee8",
+      "status": "claimed_ready",
+      "branch": "gtd/task-01-01-T02-7-bulk-20260606t130317z",
+      "pr": null,
+      "decision": null,
+      "validation": null,
+      "internal_blockers": [],
+      "claim": {
+        "claimed_at": "2026-06-06T13:03:20.125Z",
+        "comment_ref": "https://api.github.com/repos/davide-troiani/test-app/issues/comments/4638694435"
+      }
+    }
+  },
+  "waves": [
+    {
+      "index": 1,
+      "parallel_tasks": [
+        "01-01-T01"
+      ]
+    },
+    {
+      "index": 2,
+      "parallel_tasks": [
+        "01-01-T02"
+      ]
+    }
+  ],
+  "events": []
+}
