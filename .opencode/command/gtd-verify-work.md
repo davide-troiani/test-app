@@ -1,0 +1,38 @@
+---
+description: Validate built features through conversational UAT
+argument-hint: "[phase number, e.g., '4'] [--ws <name>]"
+requires: [export-phase-issues, phase, plan-phase, work-task-issue]
+tools:
+  read: true
+  bash: true
+  glob: true
+  grep: true
+  edit: true
+  write: true
+  agent: true
+---
+<objective>
+Validate built features through conversational testing with persistent state.
+
+Purpose: Confirm what the agent built actually works from user's perspective. One test at a time, plain text responses, no interrogation. When issues are found, automatically diagnose, plan fixes, and prepare task issue work.
+
+Output: {phase_num}-UAT.md tracking all test results. If issues found: diagnosed gaps, verified fix plans ready for export and task execution.
+</objective>
+
+<execution_context>
+@/Users/davide/repos/get-tasks-done-demo-app/.opencode/get-tasks-done/workflows/verify-work.md
+@/Users/davide/repos/get-tasks-done-demo-app/.opencode/get-tasks-done/templates/UAT.md
+</execution_context>
+
+<context>
+Phase: $ARGUMENTS (optional)
+- If provided: Test specific phase (e.g., "4")
+- If not provided: Check for active sessions or prompt for phase
+
+Context files are resolved inside the workflow (`init verify-work`) and delegated via `<files_to_read>` blocks.
+</context>
+
+<process>
+Execute end-to-end.
+Preserve all workflow gates (session management, test presentation, diagnosis, fix planning, routing).
+</process>
