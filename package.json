@@ -1,0 +1,40 @@
+{
+  "name": "gtd-task-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Task management API with Express.js, Prisma, and TypeScript",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "test:verbose": "vitest run --reporter=verbose",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0",
+    "cors": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^5.0.0",
+    "helmet": "^8.0.0",
+    "morgan": "^1.0.0",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.0.0",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.0.0",
+    "@types/node": "^25.0.0",
+    "prisma": "^6.0.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^6.0.0",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
