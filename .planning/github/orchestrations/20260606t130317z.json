@@ -2,7 +2,7 @@
   "version": 1,
   "id": "20260606t130317z",
   "repo": "davide-troiani/test-app",
-  "status": "integration_pending",
+  "status": "comprehensive_pr_pending",
   "created_at": "2026-06-06T13:03:18.876Z",
   "default_branch": "main",
   "bulk_branch": "gtd/orchestrate-20260606t130317z",
@@ -10,10 +10,7 @@
   "selector": {
     "mode": "issues",
     "raw": "#6 #7",
-    "issue_numbers": [
-      6,
-      7
-    ]
+    "issue_numbers": [6, 7]
   },
   "settings": {
     "max_concurrency": 3,
@@ -45,14 +42,8 @@
       "generated_or_migration_risk": false
     },
     "recommended_subset": [
-      {
-        "task_id": "01-01-T01",
-        "issue": 6
-      },
-      {
-        "task_id": "01-01-T02",
-        "issue": 7
-      }
+      { "task_id": "01-01-T01", "issue": 6 },
+      { "task_id": "01-01-T02", "issue": 7 }
     ],
     "decision_options": []
   },
@@ -72,10 +63,10 @@
       "issue": 7,
       "kind": "implementation",
       "source_hash": "c702954b86b80723a4cfbd6446b9821eb986c5fc6e54a5f22b8dab288dda9ee8",
-      "status": "complete",
-      "branch": "gtd-task-executor-01-01-T02-7",
-      "pr": null,
-      "decision": "accepted",
+      "status": "accepted",
+      "branch": "gtd/orchestrate-20260606t130317z",
+      "pr": 18,
+      "decision": "squash_merged",
       "validation": {
         "verified_at": "2026-06-06T15:19:00Z",
         "method": "tsc --noEmit --pretty false",
@@ -88,24 +79,15 @@
       },
       "commit": {
         "hash": "235b6c3",
+        "merged_hash": "18aad04",
         "message": "feat(01-01-T02): complete package scaffold — TypeScript/Vitest config and environment example",
         "files": ["package.json", "package-lock.json", "tsconfig.json", "vitest.config.ts", ".env.example", "tests/setup.ts", "tests/teardown.ts"]
       }
     }
   },
   "waves": [
-    {
-      "index": 1,
-      "parallel_tasks": [
-        "01-01-T01"
-      ]
-    },
-    {
-      "index": 2,
-      "parallel_tasks": [
-        "01-01-T02"
-      ]
-    }
+    { "index": 1, "parallel_tasks": ["01-01-T01"] },
+    { "index": 2, "parallel_tasks": ["01-01-T02"] }
   ],
   "events": [
     {
@@ -116,6 +98,15 @@
         "commit": "235b6c3",
         "branch": "gtd-task-executor-01-01-T02-7",
         "verification": "tsc --noEmit passed"
+      }
+    },
+    {
+      "type": "task_merged",
+      "task_id": "01-01-T02",
+      "timestamp": "2026-06-06T13:23:13Z",
+      "details": {
+        "pr": 18,
+        "merged_into": "gtd/orchestrate-20260606t130317z"
       }
     }
   ]
