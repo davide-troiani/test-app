@@ -2,11 +2,11 @@
   "version": 1,
   "id": "20260606t130317z",
   "repo": "davide-troiani/test-app",
-  "status": "comprehensive_pr_pending",
+  "status": "comprehensive_pr_open",
   "created_at": "2026-06-06T13:03:18.876Z",
   "default_branch": "main",
   "bulk_branch": "gtd/orchestrate-20260606t130317z",
-  "bulk_pr": null,
+  "bulk_pr": 19,
   "selector": {
     "mode": "issues",
     "raw": "#6 #7",
@@ -107,6 +107,17 @@
       "details": {
         "pr": 18,
         "merged_into": "gtd/orchestrate-20260606t130317z"
+      }
+    },
+    {
+      "type": "comprehensive_pr_opened",
+      "timestamp": "2026-06-06T15:24:00Z",
+      "details": {
+        "pr": 19,
+        "from_branch": "gtd/orchestrate-20260606t130317z",
+        "to_branch": "main",
+        "tasks_merged": ["01-01-T02"],
+        "checkpoints_preserved": ["01-01-T01"]
       }
     }
   ]
